@@ -92,7 +92,13 @@ h1 { font-size: clamp(34px, 6.5vw, 62px); letter-spacing: -.04em; }
 h2 { font-size: clamp(26px, 4vw, 38px); }
 h3 { font-size: clamp(19px, 2.4vw, 23px); letter-spacing: -.02em; }
 
-p { margin: 0 0 var(--e2); }
+/* Alinhado à ESQUERDA de propósito — nunca justificar.
+   Navegador não hifeniza português por padrão, então justificar só consegue
+   fechar a margem esticando os espaços entre palavras. Em coluna estreita
+   (celular, 4-5 palavras por linha) isso abre buracos brancos visíveis.
+   `text-wrap: pretty` resolve o que incomoda de verdade: evita a última
+   linha com uma palavra órfã e melhora a borda irregular. */
+p { margin: 0 0 var(--e2); text-wrap: pretty; }
 p:last-child { margin-bottom: 0; }
 
 .lead { color: var(--apagado); max-width: 62ch; font-size: 18px; }
@@ -136,17 +142,41 @@ p:last-child { margin-bottom: 0; }
 }
 .cabecalho .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--e3); height: 68px; }
 
-/* barra de provas rotativas */
+/* Barra de provas — desliza sozinha, em looping contínuo.
+   São mais itens do que cabem na tela; parada, o visitante só veria os 3
+   primeiros e nunca saberia que há mais. O truque: a trilha tem o conteúdo
+   DUPLICADO e desloca exatamente 50%, então quando termina a 1ª cópia a 2ª
+   está no mesmo lugar em que a 1ª começou — o corte é invisível. */
 .provas {
   background: var(--painel); border-bottom: 1px solid var(--linha);
   font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
   color: var(--apagado); font-weight: 600;
   overflow: hidden; white-space: nowrap;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
-.provas .wrap { display: flex; gap: var(--e4); padding-block: 10px; overflow-x: auto; scrollbar-width: none; }
-.provas .wrap::-webkit-scrollbar { display: none; }
+.provas-trilha {
+  display: flex; width: max-content; padding-block: 10px;
+  animation: desliza-provas 45s linear infinite;
+}
+.provas-grupo { display: flex; gap: var(--e4); padding-right: var(--e4); flex: none; }
 .provas span { flex: none; display: inline-flex; align-items: center; gap: 10px; }
 .provas span::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--vermelho); flex: none; }
+
+@keyframes desliza-provas { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* passar o mouse pausa, para dar tempo de ler o item que interessou */
+.provas:hover .provas-trilha,
+.provas:focus-within .provas-trilha { animation-play-state: paused; }
+
+/* quem pediu menos movimento no sistema não recebe animação nenhuma —
+   a barra volta a ser rolável com o dedo, sem ficar travada num ponto. */
+@media (prefers-reduced-motion: reduce) {
+  .provas-trilha { animation-name: none !important; transform: none !important; }
+  .provas { overflow-x: auto; scrollbar-width: none; -webkit-mask-image: none; mask-image: none; }
+  .provas::-webkit-scrollbar { display: none; }
+  .provas-grupo:nth-child(2) { display: none; }   /* sem loop, a cópia é ruído */
+}
 
 /* ------------------------------------------------------------------ botões */
 .btn {
