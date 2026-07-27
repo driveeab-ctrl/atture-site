@@ -97,24 +97,22 @@ window.ATTURE = {
   /* -----------------------------------------------------------------------
      LINKS
      -----------------------------------------------------------------------
-     `sistema` está VAZIO de propósito, e enquanto estiver assim o botão
-     "Entrar no sistema" NÃO é renderizado em nenhuma página.
+     `sistema` é o endereço de login. Preenchido = o botão "Entrar" aparece
+     em todas as páginas; vazio = o botão some (e é assim que deve ficar se
+     o Gateway sair do ar de novo — nunca deixar botão levando a 404).
 
-     Motivo (design.md, 3.7-bis): o Gateway de login único foi DESLIGADO na
-     VPS em 25/07/2026 — serviços parados e bloco removido do Caddy. Não há
-     endereço de login no ar hoje. E não se aponta para
-     `prazos.advocaciabordignon.com.br`: é o sistema do escritório, com marca
-     antiga, e o site foi decidido para NÃO nomear o escritório de origem.
-
-     Quando o Gateway voltar (destino provável: `app.atture-adv.com`), basta
-     preencher aqui e o botão nasce em todas as páginas.
+     Aponta para o **Gateway**, que descobre pelo domínio do e-mail qual
+     instalação atende aquele escritório. Religado em 27/07/2026, depois de
+     ter ficado desligado desde 25/07. NÃO apontar para
+     `prazos.advocaciabordignon.com.br`: aquele é o sistema do escritório de
+     origem, e o site foi decidido para não nomeá-lo.
 
      As redes sociais ainda não foram criadas (dependem de telefone e e-mail
      do Ademir). Enquanto o valor estiver vazio, o rodapé deve omitir o link
      — nunca publicar um ícone que leva a 404.
   ----------------------------------------------------------------------- */
   links: {
-    sistema: "",
+    sistema: "https://app.atture-adv.com",
     youtube: "",
     instagram: "",
     linkedin: ""
