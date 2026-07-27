@@ -1,0 +1,75 @@
+# =============================================================================
+# atture-site — .gitignore
+# -----------------------------------------------------------------------------
+# ESTE REPOSITÓRIO É PÚBLICO. Este arquivo é a última barreira, não a primeira:
+# a primeira é não criar arquivo com segredo dentro da pasta. Ver o README.
+# =============================================================================
+
+# --- segredos: nunca, em hipótese nenhuma ---
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.pfx
+*.p12
+*.crt
+*.cer
+*.ppk
+id_rsa
+id_rsa.*
+*.jks
+*.keystore
+*credenciais*
+*credencial*
+*segredo*
+*segredos*
+*senha*
+*senhas*
+*.secret
+secrets.*
+auth.json
+.netrc
+.npmrc
+.htpasswd
+
+# --- pastas de trabalho que não vão ao ar ---
+_inspecao/
+_marca/
+_rascunho/
+_teste-*.html
+_teste-*/
+
+# --- dependências e build (o site é HTML puro; se isso aparecer, algo saiu do trilho) ---
+node_modules/
+dist/
+build/
+.cache/
+.parcel-cache/
+.wrangler/
+.vercel/
+.netlify/
+
+# --- lixo de sistema operacional ---
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# --- editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- backups e temporários ---
+*.bak
+*.tmp
+*.orig
+*.rej
+*.log

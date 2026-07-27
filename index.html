@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>atture-adv — a IA jurídica que trabalha dentro do processo</title>
+<meta name="description" content="Abre os autos, lê até a página digitalizada, calcula, reconcilia com seus prazos e escreve a peça no seu timbre. Uma IA que executa, não que conversa.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="estilo.css">
+<script src="config.js"></script>
+</head>
+<body>
+
+<!-- ============================================================ 1. PROVAS -->
+<div class="provas" aria-label="O que o sistema faz">
+  <div class="wrap">
+    <span>IA que executa, não que conversa</span>
+    <span>9 skills jurídicas por área do direito</span>
+    <span>Auditoria de citações contra a fonte oficial</span>
+    <span>Lê até a página digitalizada dos autos</span>
+    <span>Cálculo judicial com PDF</span>
+    <span>Escaneia pelo celular direto para o caso</span>
+    <span>Peça no timbre do seu escritório</span>
+    <span>E a publicação, capturada todo dia</span>
+  </div>
+</div>
+
+<!-- ========================================================= 2. CABEÇALHO -->
+<header class="cabecalho">
+  <div class="wrap">
+    <a href="#topo" class="lockup" style="text-decoration:none" aria-label="atture-adv, início">
+      <svg class="simbolo" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="14"><line x1="39" y1="82" x2="47" y2="21"/><line x1="59" y1="82" x2="67" y2="21"/></g></svg>
+      <span class="logotipo">a<span class="tt">tt</span>ure<span class="adv">-adv</span></span>
+    </a>
+    <nav style="display:flex;gap:14px;align-items:center">
+      <a class="btn btn-secundario js-entrar" href="#" hidden>Entrar</a>
+      <a class="btn btn-primario js-contato" href="#falar">Falar com a gente</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================================== 3. TOPO -->
+<section class="topo sem-borda" id="topo">
+  <div class="wrap">
+    <h1>A IA jurídica que abre o processo,<br>lê os autos e escreve a peça.</h1>
+    <p class="manifesto">A elegância de estar sempre no prazo.</p>
+    <p class="lead" style="margin-top:22px">
+      Não é um chat que responde pergunta. É uma inteligência que <strong>executa
+      dentro do seu sistema</strong>: baixa o processo, lê inclusive a página
+      digitalizada, calcula, cruza com o que você tem em aberto e devolve a peça
+      no timbre do seu escritório. E, de quebra, não deixa passar publicação.
+    </p>
+    <div class="botoes">
+      <a class="btn btn-primario js-contato" href="#falar">Falar com a gente</a>
+      <a class="btn btn-secundario" href="#diferenca">Como é diferente do ChatGPT/Claude</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================== 4. PROBLEMA -->
+<section class="painel">
+  <div class="wrap">
+    <p class="eyebrow">O problema real</p>
+    <h2>O que come a sua semana não é o prazo. É o processo.</h2>
+    <p class="lead">
+      Controlar prazo é problema resolvido — o próprio tribunal já entrega boa parte
+      mastigada. O que continua custando caro é o resto: ler os autos, achar a prova
+      no meio do escaneado, refazer a conta, escrever a peça e formatar.
+    </p>
+    <div class="grade g3" style="margin-top:34px">
+      <div class="cartao">
+        <h3>As 800 páginas</h3>
+        <p>O processo chegou. A audiência é semana que vem. Ler os autos inteiros vai custar o seu sábado — e a parte que decide o caso costuma estar num documento escaneado.</p>
+        <p style="margin-top:12px"><em>E jogar tudo no ChatGPT, no Claude ou em outra IA não resolve: com documento muito longo, elas se perdem no meio, misturam as partes e esquecem o que leram no começo.</em></p>
+      </div>
+      <div class="cartao">
+        <h3>A conta na mão</h3>
+        <p>Correção, juros, multa, honorários. Ou horas extras no PJe-Calc. Uma tarde por cálculo, e a sensação de que é melhor conferir de novo.</p>
+      </div>
+      <div class="cartao">
+        <h3>A folha em branco</h3>
+        <p>Você já sabe a tese. Falta transformar isso em peça — e depois formatar tudo no padrão do escritório, de novo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================ 5. A IA QUE EXECUTA -->
+<section id="ia">
+  <div class="wrap">
+    <p class="eyebrow">O carro-chefe</p>
+    <h2>A diferença entre <span class="destaque">responder</span> e <span class="destaque">fazer</span>.</h2>
+    <p class="lead">
+      A maioria das IAs jurídicas devolve texto para você copiar. A nossa tem
+      <strong>23 ações que ela executa de verdade dentro do sistema</strong> —
+      abre processo, dispara extração, cria tarefa, marca prazo, gera documento.
+      Você conversa; ela trabalha.
+    </p>
+
+    <div class="grade g2" style="margin-top:40px">
+
+      <div class="cartao">
+        <h3>Lê os autos de ponta a ponta</h3>
+        <p>Baixa o processo do Projudi, extrai o texto e guarda no Drive do escritório. Depois lê — inclusive aquilo que quase nenhuma ferramenta lê. (Detalhe logo abaixo.)</p>
+      </div>
+
+      <div class="cartao">
+        <h3>Calcula de verdade, com PDF na mão</h3>
+        <p>Monta planilha de débito judicial — correção, juros, multa, honorários — e devolve o PDF na conversa. Para horas extras, usa o <strong>PJe-Calc Cidadão oficial</strong>. Não é estimativa de IA: é a calculadora que o juízo usa.</p>
+      </div>
+
+      <div class="cartao">
+        <h3>Cruza os autos com a sua agenda</h3>
+        <p>Compara o que está no processo com os prazos e tarefas que você tem em aberto e <strong>propõe</strong> o ajuste, com a evidência ao lado. Aplicar, conferir ou descartar é decisão sua — ela nunca aplica sozinha.</p>
+      </div>
+
+      <div class="cartao">
+        <h3>Entrega a peça no seu timbre</h3>
+        <p>Você sobe um .docx do escritório uma vez. A partir daí toda peça sai naquele padrão — timbre, estilos, rodapé — pronta para revisar e assinar.</p>
+      </div>
+
+      <div class="cartao">
+        <h3>Confere a data em vez de chutar</h3>
+        <p>Quando a data de um ato importa, ela vai procurar nos autos. Se não conseguir confirmar, ela diz que não conseguiu — em vez de inventar um número com cara de certeza.</p>
+      </div>
+
+      <div class="cartao">
+        <h3>Escaneia, ouve e lê anexo</h3>
+        <p>Um QR na tela e o celular vira scanner: o PDF vai direto para o Drive, sem passar pelo disco do servidor. Áudio anexado é transcrito. PDF, Word e imagem são lidos com OCR incluído.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 6. SKILLS -->
+<section class="painel" id="skills">
+  <div class="wrap">
+    <p class="eyebrow">O cérebro</p>
+    <h2>Nove especialistas, não um assistente genérico.</h2>
+    <p class="lead">
+      Tem muita gente vendendo pacote de prompt e curso de como montar o seu. Aqui
+      as skills jurídicas já vêm escritas, testadas e rodando — cada uma com a
+      doutrina, os prazos e as manhas da sua área. Você não vai aprender a montar.
+      Vai entrar e usar.
+    </p>
+    <p class="lead" style="margin-top:16px">
+      E são nove <em>skills</em>, não nove assuntos: por dentro, cada uma se divide
+      por sub-área, com material próprio de base normativa, de súmulas e leading
+      cases, e de modelos de peça. A de cível, sozinha, cobre civil, consumidor,
+      família e imobiliário em separado. A tributária se divide em constitucional
+      tributário, obrigação e crédito, processo tributário e tributos em espécie.
+      A trabalhista separa direito material de processo do trabalho.
+    </p>
+
+    <div class="cartao" style="margin-top:36px;border-color:var(--vermelho)">
+      <h3>Auditoria de citações — a que tira o seu sono</h3>
+      <p>
+        É o maior medo de quem usa IA em peça: descobrir, depois de protocolar, que
+        aquele acórdão não existe. O número parecia plausível, a ementa era fluente
+        — e era invenção.
+      </p>
+      <p style="margin-top:12px">
+        Esta skill pega o texto e confere <strong>uma citação por vez, contra a fonte
+        oficial, na hora</strong>: se a lei, a súmula, o tema repetitivo, o acórdão e
+        a doutrina existem, se estão vigentes, e se dizem mesmo o que o texto afirma.
+        A regra dela é dura: <strong>sem link de fonte oficial consultado naquela
+        sessão, a citação não recebe selo verde</strong> — fica marcada como não
+        confirmada. E ela nunca valida pela própria memória, porque é exatamente aí
+        que a alucinação se esconde.
+      </p>
+      <p style="margin-top:12px">
+        Serve para peça sua, para texto que veio de terceiro e — principalmente —
+        para o que qualquer IA escreveu, inclusive a nossa.
+      </p>
+    </div>
+
+    <div class="grade g3" style="margin-top:22px">
+      <div class="cartao"><h3>Cível, consumidor, família e imobiliário</h3><p>Quatro frentes com material separado: contratos e responsabilidade civil; práticas abusivas e vício de produto ou serviço; divórcio, guarda, alimentos e união estável; locação, usucapião, incorporação e condomínio.</p></div>
+      <div class="cartao"><h3>Criminal</h3><p>Teses defensivas, nulidades, tipicidade, dosimetria, prisões cautelares, tráfico, violência doméstica e medidas protetivas.</p></div>
+      <div class="cartao"><h3>Execução penal</h3><p>Progressão, livramento, remição por trabalho, estudo e leitura, detração, unificação, falta grave, saída temporária e atestado de pena.</p></div>
+      <div class="cartao"><h3>Trabalhista</h3><p>Vínculo, pejotização, jornada e horas extras, adicionais, rescisão e verbas, estabilidades, acidente e doença ocupacional — dos dois lados do balcão. Confere súmula do TST e OJ da SDI no portal oficial antes de citar, com atenção ao que a Reforma superou sem cancelar.</p></div>
+      <div class="cartao"><h3>Tributário</h3><p>Dividido em quatro: constitucional tributário e limitações ao poder de tributar; obrigação e crédito; processo tributário e execução fiscal; tributos em espécie. Mais prescrição e decadência, exceção de pré-executividade, ações antiexacionais e a Reforma Tributária.</p></div>
+      <div class="cartao"><h3>Prescrição intercorrente</h3><p>A execução parada há anos: regime antigo, regime novo e o direito intertemporal do REsp 2.090.768/PR — com a peça certa para cada caso.</p></div>
+    </div>
+
+    <div class="grade g3" style="margin-top:22px">
+      <div class="cartao">
+        <h3>Laudos e inquirição</h3>
+        <p>
+          Para quando o caso se decide na prova técnica: laudo psicológico, estudo
+          psicossocial, avaliação em alienação parental, escuta especializada e
+          depoimento especial da Lei 13.431/2017. A skill lê o laudo com olho crítico,
+          aponta onde ele é frágil, e transforma isso em <strong>quesitos ao perito e
+          roteiro de perguntas</strong> para a audiência — para atacar ou defender a prova.
+        </p>
+      </div>
+      <div class="cartao">
+        <h3>Pesquisa jurisprudencial</h3>
+        <p>Mapa argumentativo com as teses a favor <em>e</em> contra a sua, strings de busca prontas para cada tribunal e leitura de tendência — para você saber onde está pisando antes de escrever.</p>
+      </div>
+      <div class="cartao" style="border-color:var(--vermelho)">
+        <h3>E as suas próprias</h3>
+        <p>Você cria skills novas conversando com o sistema — do seu jeito de trabalhar, da sua sub-área, do seu tipo de cliente.</p>
+        <p style="margin-top:12px"><strong>E se você já tem uma, traz.</strong> Escrita por você ou comprada por aí: é colar o conteúdo no chat e pedir para instalar. Ela passa a rodar ao lado das nossas — que ficam protegidas e não podem ser sobrescritas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== 7. A EXTRAÇÃO -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">O que quase ninguém faz</p>
+    <h2>A prova que decide costuma estar <span class="destaque">digitalizada</span>.</h2>
+    <p class="lead">
+      Um contrato fotografado. Uma ficha de atendimento escaneada. Um extrato colado
+      como imagem no meio de um PDF digital. É onde o caso vira — e é exatamente o
+      pedaço que a maioria das ferramentas pula.
+    </p>
+
+    <div class="grade g3" style="margin-top:40px">
+      <div class="cartao">
+        <h3>OCR por região, não na página toda</h3>
+        <p>O sistema acha a imagem embutida, recorta e lê só ela. O texto digital ao redor continua fiel — sem passar por OCR e sem ganhar erro que não tinha.</p>
+      </div>
+      <div class="cartao">
+        <h3>Prova repetida custa uma leitura</h3>
+        <p>Aquele documento que aparece em dez folhas é lido uma vez. O resultado fica em cache, com controle de versão.</p>
+      </div>
+      <div class="cartao">
+        <h3>Não relê o que já leu</h3>
+        <p>Antes de reprocessar, confere se a leitura anterior ainda está fresca. Se estiver, reaproveita — e refaz só o que mudou.</p>
+      </div>
+    </div>
+
+    <div class="cartao" style="margin-top:26px;border-color:var(--vermelho)">
+      <h3>Processo grande não confunde o sistema</h3>
+      <p>
+        Toda IA tem um limite de quanto consegue segurar de uma vez. Passou desse
+        ponto, ela começa a se perder: confunde uma parte com a outra, mistura o
+        que leu de casos diferentes, esquece o que estava no início e responde com
+        a mesma segurança de quem acertou.
+      </p>
+      <p style="margin-top:12px">
+        É por isso que colar um processo inteiro no ChatGPT, no Claude ou em outra
+        IA costuma dar resultado ruim justamente nos casos volumosos — que são os
+        que mais precisavam de ajuda.
+      </p>
+      <p style="margin-top:12px">
+        <strong>O chat do atture-adv resolve isso porque foi idealizado por
+        advogados que lidam com processos grandes todo dia</strong> — e que, mesmo
+        pagando caro nas melhores IAs do mercado, viram elas alucinarem e
+        responderem fora do contexto vez após vez. O sistema nasceu dessa
+        frustração: os autos são preparados e organizados antes de chegar na IA, e
+        o que já foi entendido do caso fica guardado. O processo de 800 páginas
+        vira um caso que se conhece, não um paredão de texto.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== 8. SCANNER POR QR -->
+<section class="painel" id="scanner">
+  <div class="wrap">
+    <p class="eyebrow">Papel para dentro do sistema</p>
+    <h2>O cliente chegou com uma pilha de papel.<br>Agora vem a <span class="destaque">parte chata</span>.</h2>
+    <p class="lead">
+      Todo escritório conhece esse ritual. E ele consome mais tempo do que qualquer
+      um admite em voz alta.
+    </p>
+
+    <div class="antes-hoje" style="margin-top:40px">
+      <article class="par">
+        <div class="antes">
+          <p class="rotulo">Antes</p>
+          <p>
+            Ir até a impressora e escanear folha por folha. Ou fotografar tudo no
+            celular — que é mais rápido — e aí começa o pior: mandar as fotos para
+            o computador, juntar numa ordem que faça sentido, transformar em PDF,
+            dar um nome que você entenda daqui a seis meses e salvar na pasta certa.
+            Metade da tarde por um documento.
+          </p>
+        </div>
+        <div class="seta" aria-hidden="true">→</div>
+        <div class="hoje">
+          <p class="rotulo">Hoje</p>
+          <p>
+            Você abre a conversa do caso e clica em escanear. Aparece um QR na tela.
+            Aponta a câmera do celular, fotografa as páginas na sequência e pronto:
+            <strong>vira um PDF único, já guardado na pasta certa do escritório</strong>
+            — e a IA já pode ler o documento ali mesmo, na mesma conversa.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <div class="grade g3" style="margin-top:26px">
+      <div class="cartao">
+        <h3>Sem instalar nada</h3>
+        <p>Nenhum aplicativo, nenhum login no celular. O QR já carrega a autorização, e ela vale por tempo limitado. Funciona no celular de qualquer pessoa do escritório.</p>
+      </div>
+      <div class="cartao">
+        <h3>Já nasce organizado</h3>
+        <p>O PDF cai vinculado ao caso que estava aberto, na pasta do escritório no Drive. Não existe etapa de "depois eu organizo" — porque não sobra nada solto para organizar.</p>
+      </div>
+      <div class="cartao">
+        <h3>Não fica no nosso servidor</h3>
+        <p>O arquivo é montado e enviado direto para o Drive do dono da conversa. Não é gravado em disco na nossa infraestrutura.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================== 9. VS IA GENÉRICA -->
+<section id="diferenca">
+  <div class="wrap">
+    <p class="eyebrow">A pergunta honesta</p>
+    <h2>"Por que eu não uso só o ChatGPT ou o Claude?"</h2>
+    <p class="lead">Você pode. Para rascunhar e para estudar, funcionam bem — e a gente também paga por elas. A diferença aparece quando o trabalho encosta no processo de verdade.</p>
+
+    <div class="rolagem" style="margin-top:34px">
+      <table class="tabela">
+        <thead>
+          <tr><th scope="col">O que você precisa</th><th scope="col">ChatGPT, Claude e outras</th><th scope="col">atture-adv</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Abrir os autos no tribunal</td><td>Não tem acesso ao Projudi.</td><td>Baixa, extrai e organiza sozinho.</td></tr>
+          <tr><td>Ler a página escaneada do meio do processo</td><td>Depende de você recortar e colar.</td><td>Acha, recorta e lê região por região.</td></tr>
+          <tr><td>Aguentar um processo de 800 páginas sem se perder</td><td>Passa do limite, mistura as partes e esquece o começo.</td><td>Os autos são preparados antes, e o que já entendeu do caso fica guardado.</td></tr>
+          <tr><td>Fazer o cálculo do débito</td><td>Faz conta de cabeça e erra com confiança.</td><td>Usa a calculadora oficial e devolve o PDF.</td></tr>
+          <tr><td>Executar uma ação no seu sistema</td><td>Devolve texto para você copiar.</td><td>23 ações reais: cria tarefa, marca prazo, dispara extração.</td></tr>
+          <tr><td>Entregar a peça pronta</td><td>Texto na tela, formatação por sua conta.</td><td>.docx no timbre do seu escritório.</td></tr>
+          <tr><td>Lembrar do caso semana que vem</td><td>Começa do zero.</td><td>Guarda o estado do caso e reaproveita.</td></tr>
+          <tr><td>Saber que saiu publicação sua hoje</td><td>Não busca nada.</td><td>Captura todo dia e classifica o prazo.</td></tr>
+          <tr><td>Seus dados</td><td>Num serviço compartilhado com o mundo.</td><td>Instalação isolada, banco só seu, backup diário fora do servidor.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== 10. E OS PRAZOS -->
+<section class="painel">
+  <div class="wrap">
+    <p class="eyebrow">E o básico, bem feito</p>
+    <h2>A publicação também não passa batido.</h2>
+    <p class="lead">
+      Isso o mercado inteiro promete, então não vamos fazer disso um espetáculo.
+      Vale dizer só o que é diferente aqui: <strong>o prazo não é contado pela IA.</strong>
+    </p>
+
+    <div class="grade g3" style="margin-top:34px">
+      <div class="cartao">
+        <h3>Regra, não achismo</h3>
+        <p>Quem extrai o prazo do teor é uma regra determinística, com <strong>67 testes automatizados</strong> — reconhece contestação, apelação, agravo, embargos, recurso inominado, resposta à acusação, e sabe quando o regime conta em dias úteis.</p>
+      </div>
+      <div class="cartao">
+        <h3>Confirmação é humana</h3>
+        <p>Em caso ambíguo a confiança nunca sobe para alta: a revisão continua obrigatória. E a IA nunca altera um prazo sozinha.</p>
+      </div>
+      <div class="cartao">
+        <h3>Trilha que não apaga</h3>
+        <p>O histórico de alteração de prazo só recebe registro, nunca perde. É a sua trilha de defesa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= 11. QUEM FEZ -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">De onde isso veio</p>
+    <h2>Não é teoria. É o que a gente usa todo dia.</h2>
+    <p class="lead">
+      O atture-adv nasceu dentro de um escritório em atividade, para resolver o problema
+      de quem estava perdendo o sábado com ele. Roda em produção desde julho de 2026 e é
+      usado diariamente, em processos reais, com prazo correndo de verdade.
+    </p>
+    <p class="lead" style="margin-top:18px">
+      É por isso que as skills sabem que execução penal conta prazo diferente, que o
+      Projudi trava num termo de responsabilidade, e que peça sem timbre do escritório
+      não serve para nada. Esse tipo de coisa não se aprende lendo documentação.
+    </p>
+    <p class="manifesto" style="margin-top:34px">Presença é o que se nota; precisão é o que fica.</p>
+  </div>
+</section>
+
+<!-- ====================================================== 12. SEGURANÇA -->
+<section class="painel">
+  <div class="wrap">
+    <p class="eyebrow">Segurança e dados</p>
+    <h2>Escritório não divide banco de dados com estranho.</h2>
+    <div class="grade g3" style="margin-top:34px">
+      <div class="cartao">
+        <h3>Instalação isolada</h3>
+        <p>Cada escritório tem banco e serviço próprios. Não é um banco compartilhado com filtro por cliente — é separação de verdade. A chave que assina o seu login não vale em nenhuma outra instalação.</p>
+      </div>
+      <div class="cartao">
+        <h3>Backup diário fora do servidor</h3>
+        <p>Cópia consistente todo dia, verificada antes de subir: cópia corrompida não sobe e dispara alerta. A restauração é testada de verdade, numa instância descartável.</p>
+      </div>
+      <div class="cartao">
+        <h3>Se parar, alguém é avisado</h3>
+        <p>Monitor próprio avisa se a coleta atrasou ou veio vazia, e um alerta externo pega até a hipótese do servidor inteiro cair.</p>
+      </div>
+      <div class="cartao">
+        <h3>Existe limite do que a IA lê</h3>
+        <p>Ela não lê segredo, banco, certificado nem o código do sistema. A consulta ao banco recusa colunas de credencial. E documento anexado só pode ser lido dentro da conversa em que apareceu.</p>
+      </div>
+      <div class="cartao">
+        <h3>Credenciais cifradas</h3>
+        <p>Senha de tribunal e chave de API ficam num cofre cifrado, nunca em texto puro.</p>
+      </div>
+      <div class="cartao">
+        <h3>O escaneado não fica no servidor</h3>
+        <p>O PDF do scanner vai direto para o Drive do dono da conversa. Não é gravado em disco na nossa infraestrutura.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================== 13. PLANO -->
+<section id="preco">
+  <div class="wrap">
+    <p class="eyebrow">Investimento</p>
+    <h2 style="text-align:center">Quanto custa</h2>
+    <div class="plano" style="margin-top:34px">
+      <div id="bloco-preco">
+        <div class="valor">Sob consulta</div>
+        <p class="miudo" style="margin-top:10px">
+          Depende do tamanho do escritório e do volume de processos. Fale com a
+          gente e a conta sai na hora — sem proposta de três páginas.
+        </p>
+      </div>
+      <ul>
+        <li>Chat com IA jurídica que executa ações no sistema</li>
+        <li>9 skills por área do direito, mais as que você criar</li>
+        <li>Auditoria de citações contra a fonte oficial</li>
+        <li>Leitura profunda dos autos, inclusive página digitalizada</li>
+        <li>Cálculo judicial e trabalhista, com PDF</li>
+        <li>Scanner pelo celular, com o PDF já guardado no caso</li>
+        <li>Peça em Word no timbre do seu escritório</li>
+        <li>Captura de publicações e triagem de prazos</li>
+        <li>Instalação isolada, com backup diário fora do servidor</li>
+      </ul>
+      <div class="botoes" style="justify-content:center">
+        <a class="btn btn-primario js-contato" href="#falar">Pedir uma proposta</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================= 13. FAQ -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Perguntas frequentes</p>
+    <h2>O que costumam perguntar</h2>
+    <div style="margin-top:34px">
+
+      <details>
+        <summary>Isso substitui o advogado?</summary>
+        <p>Não, e não é para isso. O sistema busca, lê, calcula, organiza e sugere. A decisão profissional, a conferência do prazo e a assinatura da peça continuam sendo suas — inclusive porque a responsabilidade também é.</p>
+      </details>
+
+      <details>
+        <summary>Qual a diferença para o ChatGPT, o Claude e as outras IAs jurídicas?</summary>
+        <p>As outras respondem. Esta executa. Ela abre o processo no tribunal, lê os autos inclusive a parte escaneada, roda o cálculo na calculadora oficial, cria tarefa e prazo no seu sistema, e devolve a peça no seu timbre. São 23 ações reais dentro do sistema, não sugestões para você copiar e colar.</p>
+      </details>
+
+      <details>
+        <summary>Já tentei jogar o processo inteiro no ChatGPT ou no Claude e o resultado foi ruim. Por que aqui seria diferente?</summary>
+        <p>Porque o problema não era o seu prompt — era o tamanho. Toda IA tem um limite de quanto consegue segurar de uma vez, e documento muito longo empurra ela para fora desse limite: aí ela mistura as partes, esquece o que leu no começo e responde errado com cara de certeza. Quanto maior o processo, pior fica — justo quando você mais precisava.</p>
+        <p>O chat do atture-adv resolve isso porque foi idealizado por advogados que lidam com processos grandes todo dia — e que, mesmo pagando caro nas melhores IAs do mercado, viram elas alucinarem e responderem fora do contexto vez após vez. O sistema nasceu dessa frustração: os autos são preparados e organizados antes de chegar na IA, e o que já foi entendido do caso fica guardado para as próximas vezes.</p>
+      </details>
+
+      <details>
+        <summary>Como vocês lidam com jurisprudência inventada?</summary>
+        <p>De frente. Existe uma skill só para isso: ela pega o texto — a sua peça, um parecer de terceiro ou algo que qualquer IA escreveu, inclusive a nossa — e confere citação por citação contra a fonte oficial, na hora. Verifica se a lei, a súmula, o tema repetitivo, o acórdão e a doutrina existem, se estão vigentes e se dizem mesmo o que o texto afirma.</p>
+        <p><strong>A regra é dura de propósito: sem link de fonte oficial consultado naquela sessão, a citação não recebe selo verde</strong> — fica marcada como não confirmada, e você decide o que fazer. Ela nunca valida pela própria memória, porque é justamente aí que a alucinação se esconde. E se a busca estiver fora do ar, ela entrega o inventário com tudo marcado como não verificável, em vez de fingir que checou.</p>
+      </details>
+
+      <details>
+        <summary>E se a IA errar?</summary>
+        <p>Ela vai errar em algum momento — qualquer uma erra. O sistema foi construído para que isso não vire prazo perdido: o prazo é extraído por regra determinística, não pela IA; quando há ambiguidade, a revisão humana continua obrigatória; e <strong>a IA nunca altera um prazo sozinha</strong>. Quando cruza os autos com a sua agenda, ela propõe e espera você decidir, sempre mostrando a evidência.</p>
+      </details>
+
+      <details>
+        <summary>Funciona em qual tribunal?</summary>
+        <p>Hoje o escopo é o Projudi do TJPR. A integração com PJe e Eproc está em desenvolvimento — quando estiver pronta, estará escrita aqui. Enquanto não estiver, não prometemos.</p>
+      </details>
+
+      <details>
+        <summary>Posso ensinar o sistema a trabalhar do meu jeito?</summary>
+        <p>Pode, e é um dos pontos fortes. Você cria as suas próprias skills conversando com o sistema — e, se já tiver uma pronta, escrita por você ou comprada por aí, é só colar o conteúdo no chat e pedir para instalar. Ela roda ao lado das nossas, que ficam protegidas e não podem ser sobrescritas.</p>
+        <p>Também dá para subir o .docx do escritório, para que toda peça saia no seu padrão de timbre e estilos.</p>
+      </details>
+
+      <details>
+        <summary>Meus dados ficam onde?</summary>
+        <p>Em infraestrutura própria com HTTPS, e em <strong>instalação isolada</strong>: banco e serviço só seus. Backup diário para fora do servidor, com verificação de integridade. Credenciais de tribunal ficam cifradas em cofre.</p>
+      </details>
+
+      <details>
+        <summary>Dá para ver funcionando antes de contratar?</summary>
+        <p>Dá. Chame a gente e mostramos o sistema rodando, com dados fictícios — nenhum processo real de ninguém aparece em demonstração.</p>
+      </details>
+
+      <details>
+        <summary>Como é o suporte?</summary>
+        <p>Direto com quem construiu o sistema, por WhatsApp e e-mail. Não temos central de atendimento nem prazo de resposta contratado — quando tivermos, estará escrito aqui.</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= 14. FECHAMENTO -->
+<section id="falar">
+  <div class="wrap">
+    <p class="eyebrow">Conversar</p>
+    <h2>Não é um pacote de prompts.<br>É um sistema jurídico no ar, usado todo dia.</h2>
+    <p class="lead">
+      Deixe seu contato que a gente responde — ou chame direto no WhatsApp, que é mais rápido.
+    </p>
+
+    <form class="form" id="form-contato" style="margin-top:34px" novalidate>
+      <div class="campo">
+        <label for="nome">Nome</label>
+        <input id="nome" name="nome" type="text" required autocomplete="name" maxlength="120">
+      </div>
+      <div class="campo">
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" required autocomplete="email" maxlength="160">
+      </div>
+      <div class="campo">
+        <label for="whatsapp">WhatsApp (opcional)</label>
+        <input id="whatsapp" name="whatsapp" type="tel" autocomplete="tel" maxlength="30">
+      </div>
+      <div class="campo">
+        <label for="tamanho">Tamanho do escritório</label>
+        <select id="tamanho" name="tamanhoEscritorio">
+          <option value="">Prefiro não dizer</option>
+          <option>Sozinho</option>
+          <option>2 a 5 pessoas</option>
+          <option>6 a 10 pessoas</option>
+          <option>Mais de 10</option>
+          <option>Departamento jurídico</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="mensagem">O que você precisa resolver? (opcional)</label>
+        <textarea id="mensagem" name="mensagem" maxlength="2000"></textarea>
+      </div>
+
+      <!-- honeypot: humano não vê, robô preenche.
+           O nome do campo é contrato com functions/api/contato.js — não mudar. -->
+      <div style="position:absolute;left:-9999px" aria-hidden="true">
+        <label for="empresa_url">Não preencha este campo</label>
+        <input id="empresa_url" name="empresa_url" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <p class="aviso-lgpd">
+        Usamos esses dados só para responder o seu contato. Não repassamos a
+        terceiros para publicidade e você pode pedir a exclusão quando quiser.
+        Veja a <a href="privacidade.html">Política de Privacidade</a>.
+      </p>
+
+      <div class="botoes" style="margin-top:8px">
+        <button class="btn btn-primario" type="submit">Enviar contato</button>
+        <a class="btn btn-secundario js-contato" href="#" hidden>Chamar no WhatsApp</a>
+      </div>
+      <p id="form-erro" class="miudo" role="alert" hidden></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- =========================================================== 15. RODAPÉ -->
+<footer class="rodape">
+  <div class="wrap">
+    <div class="lockup">
+      <svg class="simbolo" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="14"><line x1="39" y1="82" x2="47" y2="21"/><line x1="59" y1="82" x2="67" y2="21"/></g></svg>
+      <span class="logotipo">a<span class="tt">tt</span>ure<span class="adv">-adv</span></span>
+    </div>
+    <nav class="links">
+      <a href="privacidade.html">Política de Privacidade</a>
+      <a href="termos.html">Termos de Uso</a>
+      <a id="rodape-email" href="#">Contato</a>
+    </nav>
+    <p class="miudo" id="rodape-empresa" style="width:100%;margin:0"></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var C = window.ATTURE || {};
+
+  /* --- botão "Entrar": só existe se houver destino de login configurado --- */
+  var entrar = document.querySelector(".js-entrar");
+  if (entrar && C.links && C.links.sistema) {
+    entrar.href = C.links.sistema;
+    entrar.hidden = false;
+  }
+
+  /* --- WhatsApp: se houver número, os botões de contato viram wa.me;
+         se não houver, continuam levando ao formulário (nunca a lugar nenhum) --- */
+  var wa = typeof C.linkWhatsApp === "function" ? C.linkWhatsApp() : null;
+  if (wa) {
+    document.querySelectorAll(".js-contato").forEach(function (a) {
+      a.href = wa;
+      a.rel = "noopener";
+      a.target = "_blank";
+      a.hidden = false;
+    });
+  }
+
+  /* --- rodapé: e-mail e identificação (omite a linha do CNPJ se estiver vazia) --- */
+  var mail = document.getElementById("rodape-email");
+  if (mail && typeof C.linkEmail === "function") mail.href = C.linkEmail("Contato pelo site");
+
+  var emp = document.getElementById("rodape-empresa");
+  if (emp) {
+    var nome = (C.empresa && C.empresa.nome) || "atture-adv";
+    var doc = (C.empresa && C.empresa.identificacao) || "";
+    emp.textContent = doc ? nome + " · CNPJ " + doc : nome;
+  }
+
+  /* --- preço: enquanto não houver valor, fica "sob consulta" --- */
+  if (typeof C.temPreco === "function" && C.temPreco()) {
+    var bloco = document.getElementById("bloco-preco");
+    if (bloco) {
+      bloco.innerHTML =
+        '<div class="valor">' + C.precoFormatado() + "</div>" +
+        '<p class="miudo" style="margin-top:6px">por ' + (C.preco.ciclo || "mês") + "</p>";
+    }
+  }
+
+  /* --- formulário --- */
+  var form = document.getElementById("form-contato");
+  var erro = document.getElementById("form-erro");
+
+  function falhar(msg) {
+    if (!erro) return;
+    var alternativa = wa
+      ? ' Ou chame no WhatsApp: <a href="' + wa + '">clique aqui</a>.'
+      : ' Ou escreva direto para <a href="' + (typeof C.linkEmail === "function" ? C.linkEmail("Contato pelo site") : "#") + '">' +
+        ((C.email && C.email.contato) || "") + "</a>.";
+    erro.innerHTML = msg + alternativa;
+    erro.hidden = false;
+  }
+
+  if (form) {
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      if (erro) erro.hidden = true;
+
+      var botao = form.querySelector('button[type="submit"]');
+      var dados = {};
+      new FormData(form).forEach(function (v, k) { dados[k] = String(v); });
+
+      if (!dados.nome || !dados.email) {
+        falhar("Preencha ao menos nome e e-mail.");
+        return;
+      }
+
+      if (botao) { botao.disabled = true; botao.textContent = "Enviando…"; }
+
+      fetch("/api/contato", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dados)
+      })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { window.location.href = "obrigado.html"; return; }
+          throw new Error((j && j.erro) || "falhou");
+        })
+        .catch(function () {
+          falhar("Não consegui enviar agora.");
+          if (botao) { botao.disabled = false; botao.textContent = "Enviar contato"; }
+        });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

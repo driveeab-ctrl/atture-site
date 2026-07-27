@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página não encontrada — atture-adv</title>
+  <meta name="description" content="Esta página não existe no site do atture-adv.">
+  <meta name="theme-color" content="#16151C">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="estilo.css">
+  <script src="config.js"></script>
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="wrap">
+      <a href="index.html" class="lockup" aria-label="atture-adv — página inicial">
+        <svg class="simbolo" viewBox="0 0 100 100" role="img" aria-label="atture-adv">
+          <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="14">
+            <line x1="39" y1="82" x2="47" y2="21"/>
+            <line x1="59" y1="82" x2="67" y2="21"/>
+          </g>
+        </svg>
+        <span class="logotipo">a<span class="tt">tt</span>ure<span class="adv">-adv</span></span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="topo sem-borda">
+      <div class="wrap">
+        <p class="eyebrow">ERRO 404</p>
+        <h1>Essa página não existe.</h1>
+        <p class="lead">Talvez o endereço tenha mudado, ou o link esteja errado. Volte para o começo — ou fale com a gente.</p>
+        <div class="botoes">
+          <a href="index.html" class="btn btn-primario">Página inicial</a>
+          <a id="cta-whatsapp" hidden></a>
+          <a id="cta-email" hidden></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="wrap">
+      <div>
+        <span class="lockup">
+          <svg class="simbolo" viewBox="0 0 100 100" role="img" aria-label="atture-adv">
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="14">
+              <line x1="39" y1="82" x2="47" y2="21"/>
+              <line x1="59" y1="82" x2="67" y2="21"/>
+            </g>
+          </svg>
+          <span class="logotipo">a<span class="tt">tt</span>ure<span class="adv">-adv</span></span>
+        </span>
+        <p class="miudo" id="rodape-identificacao"></p>
+      </div>
+      <div class="links">
+        <a href="privacidade.html">Política de Privacidade</a>
+        <a href="termos.html">Termos de Uso</a>
+        <a id="rodape-sistema" href="#" hidden>Entrar no sistema</a>
+      </div>
+    </div>
+    <div class="wrap">
+      <p class="miudo">O atture-adv é ferramenta de apoio ao trabalho do advogado. Não presta serviço jurídico e não substitui a atuação profissional.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var emp = window.ATTURE.empresa || {};
+      var email = (window.ATTURE.email && window.ATTURE.email.contato) || "";
+
+      var linkWhats = window.ATTURE.linkWhatsApp("Olá! Cheguei numa página que não existe no site do atture-adv.");
+      var btnWhats = document.getElementById("cta-whatsapp");
+      var btnEmail = document.getElementById("cta-email");
+
+      if (linkWhats) {
+        btnWhats.href = linkWhats;
+        btnWhats.textContent = "Falar no WhatsApp";
+        // A classe só entra junto com a revelação: aplicá-la já no HTML
+        // faria o "hidden" perder para o "display: inline-flex" do .btn
+        // (regra de autor sempre vence regra do agente de usuário).
+        btnWhats.className = "btn btn-secundario";
+        btnWhats.hidden = false;
+      } else {
+        btnEmail.href = window.ATTURE.linkEmail();
+        btnEmail.textContent = "Escrever para " + email;
+        btnEmail.className = "btn btn-secundario";
+        btnEmail.hidden = false;
+      }
+
+      var partes = [emp.nome || "atture-adv"];
+      if (emp.identificacao) partes.push("CNPJ " + emp.identificacao);
+      partes.push(email);
+      document.getElementById("rodape-identificacao").textContent = partes.join(" · ");
+
+      var linkSistema = window.ATTURE.links && window.ATTURE.links.sistema;
+      if (linkSistema) {
+        var elSistema = document.getElementById("rodape-sistema");
+        elSistema.href = linkSistema;
+        elSistema.hidden = false;
+      }
+    })();
+  </script>
+
+</body>
+</html>

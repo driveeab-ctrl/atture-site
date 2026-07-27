@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="atture-adv">
+  <title>atture-adv</title>
+  <rect width="100" height="100" rx="22" fill="#16151C"/>
+  <g fill="none" stroke="#E11D48" stroke-linecap="round" stroke-width="14">
+    <line x1="39" y1="82" x2="47" y2="21"/>
+    <line x1="59" y1="82" x2="67" y2="21"/>
+  </g>
+</svg>

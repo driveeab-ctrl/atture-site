@@ -1,0 +1,274 @@
+/* =========================================================================
+   atture-adv — folha de estilo única
+   -------------------------------------------------------------------------
+   Identidade DEFINITIVA (confirmada 27/07/2026, artifact 58e2355e-...):
+   fundo carvão, texto off-white, UM único acento vermelho.
+   A identidade é ESCURA por decisão — não é site claro com detalhe vermelho.
+
+   Sem framework, sem build, sem CDN, sem fonte externa. Só famílias do
+   sistema, para carregar instantâneo no 4G e nunca depender de terceiro.
+
+   REGRA: nenhum hexadecimal solto no meio do arquivo. Tudo vem dos tokens.
+   ========================================================================= */
+
+/* ---------------------------------------------------------------- tokens */
+:root {
+  /* base escura */
+  --carvao:        #16151C;
+  --painel:        #1E1D26;
+  --painel-2:      #24222E;
+  --linha:         #2C2A35;
+
+  /* acento — vermelho é o ÚNICO */
+  --vermelho:      #E11D48;   /* marca: símbolo, "tt", display, borda */
+  --vermelho-fundo:#A4132F;   /* botão COM rótulo (6,4:1 com off-white) */
+  --coral-suave:   #F4707F;   /* hover, ícone pequeno */
+
+  /* texto */
+  --off-white:     #ECE8E3;
+  --apagado:       #8B8894;
+
+  /* claro — só quando a peça exigir fundo claro */
+  --papel:         #EEEAE4;
+  --tinta:         #1C1119;
+
+  /* tipografia */
+  --fonte-display: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --fonte-serifa:  "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --fonte-mono:    ui-monospace, "SFMono-Regular", "Cascadia Mono", "Consolas", monospace;
+
+  /* escala de espaço */
+  --e1: 8px;  --e2: 14px; --e3: 22px;
+  --e4: 34px; --e5: 52px; --e6: 76px;
+
+  --raio: 14px;
+  --largura: 1080px;
+  --respiro: 28px;
+}
+
+/* ----------------------------------------------------------------- reset */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--carvao);
+  color: var(--off-white);
+  font-family: var(--fonte-display);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;              /* nunca rolar de lado */
+}
+
+img, svg, video { max-width: 100%; height: auto; display: block; }
+
+/* `hidden` PRECISA vencer o display dos componentes.
+   A regra [hidden]{display:none} do navegador é do agente de usuário e perde
+   para qualquer `display` de autor — sem este !important, um `.btn` marcado
+   como hidden continua aparecendo (pílula vazia). Bug real, achado em teste. */
+[hidden] { display: none !important; }
+
+a { color: var(--off-white); text-decoration-color: var(--vermelho); text-underline-offset: 3px; }
+a:hover { color: var(--coral-suave); }
+
+:focus-visible { outline: 2px solid var(--coral-suave); outline-offset: 3px; border-radius: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* --------------------------------------------------------------- estrutura */
+.wrap { max-width: var(--largura); margin: 0 auto; padding: 0 var(--respiro); }
+
+section { padding: var(--e6) 0; border-bottom: 1px solid var(--linha); }
+section.sem-borda { border-bottom: 0; }
+section.painel { background: var(--painel); }
+
+/* ------------------------------------------------------------ tipografia */
+h1, h2, h3 { font-weight: 800; letter-spacing: -.03em; line-height: 1.05; margin: 0 0 var(--e2); text-wrap: balance; }
+h1 { font-size: clamp(34px, 6.5vw, 62px); letter-spacing: -.04em; }
+h2 { font-size: clamp(26px, 4vw, 38px); }
+h3 { font-size: clamp(19px, 2.4vw, 23px); letter-spacing: -.02em; }
+
+p { margin: 0 0 var(--e2); }
+p:last-child { margin-bottom: 0; }
+
+.lead { color: var(--apagado); max-width: 62ch; font-size: 18px; }
+.miudo { font-size: 14px; color: var(--apagado); }
+
+/* rótulo de seção */
+.eyebrow {
+  font-size: 12px; letter-spacing: .24em; text-transform: uppercase;
+  color: var(--apagado); font-weight: 600; margin: 0 0 var(--e3);
+  display: flex; align-items: center; gap: var(--e2);
+}
+.eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--vermelho); }
+
+/* frase-manifesto — serifa itálica, no máximo uma por seção */
+.manifesto {
+  font-family: var(--fonte-serifa); font-style: italic;
+  font-size: clamp(21px, 3.2vw, 30px); line-height: 1.25;
+  color: var(--off-white); max-width: 24ch; text-wrap: balance;
+}
+
+/* o vermelho como destaque de texto: SÓ em tamanho grande (>=24px) */
+.destaque { color: var(--vermelho); }
+
+/* ------------------------------------------------------------------ marca */
+/* nowrap é obrigatório: o nome da marca NUNCA pode quebrar em duas linhas
+   (visto quebrando como "atture-" / "adv" a 360px, em teste). */
+.logotipo { font-weight: 800; letter-spacing: -.04em; line-height: 1; display: inline-block; white-space: nowrap; }
+.logotipo .tt  { color: var(--vermelho); }
+.logotipo .adv { color: var(--apagado); font-weight: 600; }
+
+.lockup { display: inline-flex; align-items: center; gap: var(--e2); }
+.lockup .simbolo { width: 34px; height: 34px; color: var(--vermelho); flex: none; }
+.lockup .logotipo { font-size: 26px; }
+
+/* --------------------------------------------------------------- cabeçalho */
+.cabecalho {
+  position: sticky; top: 0; z-index: 20;
+  background: color-mix(in oklab, var(--carvao) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--linha);
+}
+.cabecalho .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--e3); height: 68px; }
+
+/* barra de provas rotativas */
+.provas {
+  background: var(--painel); border-bottom: 1px solid var(--linha);
+  font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--apagado); font-weight: 600;
+  overflow: hidden; white-space: nowrap;
+}
+.provas .wrap { display: flex; gap: var(--e4); padding-block: 10px; overflow-x: auto; scrollbar-width: none; }
+.provas .wrap::-webkit-scrollbar { display: none; }
+.provas span { flex: none; display: inline-flex; align-items: center; gap: 10px; }
+.provas span::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--vermelho); flex: none; }
+
+/* ------------------------------------------------------------------ botões */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 14px 26px; border-radius: 999px; border: 1px solid transparent;
+  font: inherit; font-weight: 700; font-size: 16px; line-height: 1;
+  white-space: nowrap;             /* rótulo de botão não quebra em duas linhas */
+  cursor: pointer; text-decoration: none; transition: background .15s, border-color .15s, transform .15s;
+}
+/* primário: vermelho-FUNDO, não o vermelho puro — contraste 6,4:1 */
+.btn-primario { background: var(--vermelho-fundo); color: var(--off-white); }
+.btn-primario:hover { background: var(--vermelho); color: var(--off-white); transform: translateY(-1px); }
+
+.btn-secundario { background: transparent; color: var(--off-white); border-color: var(--linha); }
+.btn-secundario:hover { border-color: var(--vermelho); color: var(--off-white); }
+
+.botoes { display: flex; flex-wrap: wrap; gap: var(--e2); margin-top: var(--e4); }
+
+/* ------------------------------------------------------------------ topo */
+.topo { padding: clamp(56px, 9vw, 104px) 0 var(--e6); position: relative; overflow: hidden; }
+.topo::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(120% 80% at 50% -10%, color-mix(in oklab, var(--vermelho) 14%, transparent), transparent 58%);
+}
+.topo .wrap { position: relative; }
+.topo .manifesto { margin-top: var(--e3); }
+
+/* --------------------------------------------------------------- cartões */
+.grade { display: grid; gap: var(--e3); }
+.g2 { grid-template-columns: repeat(2, 1fr); }
+.g3 { grid-template-columns: repeat(3, 1fr); }
+
+.cartao {
+  background: var(--painel); border: 1px solid var(--linha);
+  border-radius: var(--raio); padding: var(--e4);
+}
+.cartao h3 { margin-bottom: var(--e1); }
+.cartao p { color: var(--apagado); margin: 0; }
+
+/* ----------------------------------------------------- bloco Antes -> Hoje */
+.antes-hoje { display: grid; gap: var(--e3); }
+.par {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: var(--e3); align-items: stretch;
+  border: 1px solid var(--linha); border-radius: var(--raio); overflow: hidden;
+  background: var(--painel);
+}
+.par > div { padding: var(--e4); }
+.par .rotulo { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; margin-bottom: var(--e1); }
+.par .antes { background: var(--carvao); }
+.par .antes .rotulo { color: var(--apagado); }
+.par .antes p { color: var(--apagado); margin: 0; }
+.par .seta { display: grid; place-items: center; padding: 0 var(--e1); color: var(--vermelho); font-size: 22px; }
+.par .hoje .rotulo { color: var(--vermelho); }
+.par .hoje p { margin: 0; }
+
+/* ------------------------------------------------------------- comparação */
+.tabela { width: 100%; border-collapse: collapse; font-size: 16px; }
+.tabela th, .tabela td { text-align: left; padding: var(--e2) var(--e3); border-bottom: 1px solid var(--linha); vertical-align: top; }
+.tabela th { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--apagado); font-weight: 700; }
+.tabela td:first-child { color: var(--apagado); }
+.rolagem { overflow-x: auto; }        /* tabela larga rola sozinha, a página não */
+
+/* ------------------------------------------------------------------ plano */
+.plano {
+  background: var(--painel); border: 1px solid var(--linha); border-radius: var(--raio);
+  padding: var(--e5); max-width: 520px; margin: 0 auto; text-align: center;
+}
+.plano .valor { font-size: clamp(30px, 5vw, 44px); font-weight: 800; letter-spacing: -.03em; }
+.plano ul { list-style: none; padding: 0; margin: var(--e3) 0 0; text-align: left; display: grid; gap: 10px; }
+.plano li { display: grid; grid-template-columns: 20px 1fr; gap: 12px; color: var(--apagado); }
+.plano li::before { content: ""; width: 9px; height: 9px; border-radius: 2px; background: var(--vermelho); margin-top: 8px; }
+
+/* -------------------------------------------------------------------- faq */
+details {
+  border: 1px solid var(--linha); border-radius: var(--raio);
+  background: var(--painel); padding: var(--e3) var(--e4); margin-bottom: var(--e2);
+}
+details[open] { border-color: color-mix(in oklab, var(--vermelho) 45%, var(--linha)); }
+summary { cursor: pointer; font-weight: 700; font-size: 17px; list-style: none; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; float: right; color: var(--vermelho); font-size: 22px; line-height: 1; }
+details[open] summary::after { content: "−"; }
+details p { margin-top: var(--e2); color: var(--apagado); }
+
+/* ------------------------------------------------------------- formulário */
+.form { display: grid; gap: var(--e2); max-width: 520px; }
+.campo { display: grid; gap: 6px; }
+.campo label { font-size: 13px; font-weight: 600; color: var(--apagado); }
+.campo input, .campo select, .campo textarea {
+  font: inherit; font-size: 16px; color: var(--off-white);
+  background: var(--painel-2); border: 1px solid var(--linha);
+  border-radius: 10px; padding: 12px 14px; width: 100%;
+}
+.campo textarea { min-height: 110px; resize: vertical; }
+.campo input:focus, .campo select:focus, .campo textarea:focus { border-color: var(--vermelho); outline: none; }
+.aviso-lgpd { font-size: 13px; color: var(--apagado); }
+.aviso-lgpd a { color: var(--apagado); }
+
+/* ------------------------------------------------------------------ rodapé */
+.rodape { padding: var(--e5) 0 var(--e6); border-bottom: 0; }
+.rodape .wrap { display: flex; flex-wrap: wrap; gap: var(--e3); justify-content: space-between; align-items: center; }
+.rodape .links { display: flex; flex-wrap: wrap; gap: var(--e3); font-size: 14px; }
+.rodape .lockup .logotipo { font-size: 20px; }
+.rodape .lockup .simbolo { width: 24px; height: 24px; }
+
+/* ------------------------------------------------------------------ mobile */
+@media (max-width: 860px) {
+  .g2, .g3 { grid-template-columns: 1fr; }
+  .par { grid-template-columns: 1fr; }
+  .par .seta { padding: 0 0 var(--e2); transform: rotate(90deg); }
+  .par .antes { border-bottom: 1px solid var(--linha); }
+  .cabecalho .wrap { height: 60px; }
+  .cabecalho .btn { padding: 11px 18px; font-size: 15px; }
+  section { padding: var(--e5) 0; }
+}
+
+@media (max-width: 420px) {
+  .lockup .logotipo { font-size: 20px; }
+  .lockup .simbolo { width: 26px; height: 26px; }
+  .botoes .btn { width: 100%; }
+  /* o cabeçalho é a linha mais apertada do site: marca + CTA lado a lado.
+     Com `nowrap` no botão, sem encolher aqui o conjunto estoura 360px. */
+  .cabecalho .wrap { gap: var(--e2); padding: 0 18px; }
+  .cabecalho .btn { padding: 10px 14px; font-size: 14px; }
+}

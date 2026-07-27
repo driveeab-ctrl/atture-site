@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recebemos o seu contato — atture-adv</title>
+  <meta name="description" content="Confirmação de envio do formulário de contato do atture-adv.">
+  <meta name="theme-color" content="#16151C">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="estilo.css">
+  <script src="config.js"></script>
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="wrap">
+      <a href="index.html" class="lockup" aria-label="atture-adv — página inicial">
+        <svg class="simbolo" viewBox="0 0 100 100" role="img" aria-label="atture-adv">
+          <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="14">
+            <line x1="39" y1="82" x2="47" y2="21"/>
+            <line x1="59" y1="82" x2="67" y2="21"/>
+          </g>
+        </svg>
+        <span class="logotipo">a<span class="tt">tt</span>ure<span class="adv">-adv</span></span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="topo sem-borda">
+      <div class="wrap">
+        <p class="eyebrow">CONTATO ENVIADO</p>
+        <h1>Recebemos o seu contato.</h1>
+        <p class="lead">A gente retorna assim que possível, pelo e-mail e pelo WhatsApp que você informou. Se preferir adiantar a conversa, chame direto:</p>
+        <div class="botoes">
+          <a id="cta-whatsapp" hidden></a>
+          <a id="cta-email" class="btn btn-secundario"></a>
+          <a href="index.html" class="btn btn-secundario">Voltar para a página inicial</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="wrap">
+      <div>
+        <span class="lockup">
+          <svg class="simbolo" viewBox="0 0 100 100" role="img" aria-label="atture-adv">
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="14">
+              <line x1="39" y1="82" x2="47" y2="21"/>
+              <line x1="59" y1="82" x2="67" y2="21"/>
+            </g>
+          </svg>
+          <span class="logotipo">a<span class="tt">tt</span>ure<span class="adv">-adv</span></span>
+        </span>
+        <p class="miudo" id="rodape-identificacao"></p>
+      </div>
+      <div class="links">
+        <a href="privacidade.html">Política de Privacidade</a>
+        <a href="termos.html">Termos de Uso</a>
+        <a id="rodape-sistema" href="#" hidden>Entrar no sistema</a>
+      </div>
+    </div>
+    <div class="wrap">
+      <p class="miudo">O atture-adv é ferramenta de apoio ao trabalho do advogado. Não presta serviço jurídico e não substitui a atuação profissional.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var emp = window.ATTURE.empresa || {};
+      var email = (window.ATTURE.email && window.ATTURE.email.contato) || "";
+
+      // CTA principal: WhatsApp se estiver configurado, senão o e-mail direto
+      // — o visitante nunca fica sem uma saída imediata.
+      var linkWhats = window.ATTURE.linkWhatsApp("Olá! Acabei de enviar uma mensagem pelo site do atture-adv.");
+      var btnWhats = document.getElementById("cta-whatsapp");
+      var btnEmail = document.getElementById("cta-email");
+      var linkEmailContato = window.ATTURE.linkEmail("Contato pelo site");
+
+      btnEmail.href = linkEmailContato;
+      btnEmail.textContent = "Escrever para " + email;
+
+      if (linkWhats) {
+        btnWhats.href = linkWhats;
+        btnWhats.textContent = "Falar no WhatsApp";
+        // A classe só entra junto com a revelação: aplicá-la already no HTML
+        // faria o "hidden" perder para o "display: inline-flex" do .btn
+        // (regra de autor sempre vence regra do agente de usuário).
+        btnWhats.className = "btn btn-primario";
+        btnWhats.hidden = false;
+      }
+
+      // Rodapé
+      var partes = [emp.nome || "atture-adv"];
+      if (emp.identificacao) partes.push("CNPJ " + emp.identificacao);
+      partes.push(email);
+      document.getElementById("rodape-identificacao").textContent = partes.join(" · ");
+
+      var linkSistema = window.ATTURE.links && window.ATTURE.links.sistema;
+      if (linkSistema) {
+        var elSistema = document.getElementById("rodape-sistema");
+        elSistema.href = linkSistema;
+        elSistema.hidden = false;
+      }
+    })();
+  </script>
+
+</body>
+</html>
