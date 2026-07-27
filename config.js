@@ -114,7 +114,7 @@ window.ATTURE = {
   links: {
     sistema: "https://app.atture-adv.com",
     youtube: "",
-    instagram: "",
+    instagram: "https://www.instagram.com/atture.adv/",
     linkedin: ""
   },
 

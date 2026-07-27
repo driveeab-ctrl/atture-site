@@ -7,7 +7,7 @@
 <meta name="description" content="Abre os autos, lê até a página digitalizada, calcula, reconcilia com seus prazos e escreve a peça no seu timbre. Uma IA que executa, não que conversa.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="estilo.css">
-<script src="config.js?v=2"></script>
+<script src="config.js?v=3"></script>
 </head>
 <body>
 
@@ -609,6 +609,9 @@
       <a href="privacidade.html">Política de Privacidade</a>
       <a href="termos.html">Termos de Uso</a>
       <a id="rodape-email" href="#">Contato</a>
+      <a id="rodape-instagram" href="#" rel="noopener" target="_blank" hidden>Instagram</a>
+      <a id="rodape-linkedin" href="#" rel="noopener" target="_blank" hidden>LinkedIn</a>
+      <a id="rodape-youtube" href="#" rel="noopener" target="_blank" hidden>YouTube</a>
     </nav>
     <p class="miudo" id="rodape-empresa" style="width:100%;margin:0"></p>
   </div>
@@ -640,6 +643,14 @@
   /* --- rodapé: e-mail e identificação (omite a linha do CNPJ se estiver vazia) --- */
   var mail = document.getElementById("rodape-email");
   if (mail && typeof C.linkEmail === "function") mail.href = C.linkEmail("Contato pelo site");
+
+  /* --- redes sociais: cada link só existe se estiver preenchido no config.
+         Ícone que leva a 404 é pior que ícone nenhum. --- */
+  ["instagram", "linkedin", "youtube"].forEach(function (rede) {
+    var el = document.getElementById("rodape-" + rede);
+    var url = C.links && C.links[rede];
+    if (el && url) { el.href = url; el.hidden = false; }
+  });
 
   var emp = document.getElementById("rodape-empresa");
   if (emp) {
