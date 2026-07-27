@@ -60,7 +60,7 @@ window.ATTURE = {
      saída (design.md, seção 3.5).
   ----------------------------------------------------------------------- */
   whatsapp: {
-    numero: "",
+    numero: "5543984762767",   // +55 43 98476-2767
     mensagem: "Olá! Vim pelo site do atture-adv e quero saber mais."
   },
 
