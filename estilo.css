@@ -98,10 +98,25 @@ h3 { font-size: clamp(19px, 2.4vw, 23px); letter-spacing: -.02em; }
    (celular, 4-5 palavras por linha) isso abre buracos brancos visíveis.
    `text-wrap: pretty` resolve o que incomoda de verdade: evita a última
    linha com uma palavra órfã e melhora a borda irregular. */
-p { margin: 0 0 var(--e2); text-wrap: pretty; }
+/* O espaço ENTRE parágrafos precisa ser maior que o espaço entre linhas,
+   senão dois parágrafos leem como um bloco só. Estava em --e2 (14px) contra
+   uma entrelinha de ~27px: metade do necessário. Foi o que deixou o texto
+   do site com cara de documento colado numa página. */
+p { margin: 0 0 var(--e3); text-wrap: pretty; hyphens: auto; }
 p:last-child { margin-bottom: 0; }
 
-.lead { color: var(--apagado); max-width: 62ch; font-size: 18px; }
+/* Rede de segurança: qualquer parágrafo solto direto na `.wrap` de 1080px
+   correria ~130 caracteres por linha. Cartão e grade não são afetados —
+   só filho direto. */
+section .wrap > p { max-width: 62ch; }
+
+/* Título de seção é grande (até 38px); 14px abaixo dele é aperto pelo mesmo
+   motivo do parágrafo. Só o título de seção — o h3 dentro de cartão continua
+   colado no texto dele de propósito, que é o que faz o cartão ler como uma
+   unidade. */
+section .wrap > h2 { margin-bottom: var(--e3); }
+
+.lead { color: var(--apagado); max-width: 62ch; font-size: 18px; line-height: 1.62; }
 .miudo { font-size: 14px; color: var(--apagado); }
 
 /* rótulo de seção */
@@ -110,7 +125,10 @@ p:last-child { margin-bottom: 0; }
   color: var(--apagado); font-weight: 600; margin: 0 0 var(--e3);
   display: flex; align-items: center; gap: var(--e2);
 }
-.eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--vermelho); }
+/* 46x3 e não 26x2: é a mesma marca vermelha usada no título de seção do
+   blog. Ela é o ponto de parada visual de cada seção — tímida demais, não
+   cumpre a função. */
+.eyebrow::before { content: ""; width: 46px; height: 3px; border-radius: 2px; background: var(--vermelho); flex: none; }
 
 /* frase-manifesto — serifa itálica, no máximo uma por seção */
 .manifesto {
@@ -141,6 +159,10 @@ p:last-child { margin-bottom: 0; }
   border-bottom: 1px solid var(--linha);
 }
 .cabecalho .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--e3); height: 68px; }
+/* Estava como estilo embutido no HTML com gap fixo de 14px. Trazido para cá
+   porque estilo embutido vence a media query de tela pequena — e era por isso
+   que o cabeçalho não conseguia encolher. */
+.cabecalho .nav-topo { display: flex; align-items: center; gap: var(--e2); }
 
 /* Barra de provas — desliza sozinha, em looping contínuo.
    São mais itens do que cabem na tela; parada, o visitante só veria os 3
@@ -300,7 +322,12 @@ details p { margin-top: var(--e2); color: var(--apagado); }
   /* o cabeçalho é a linha mais apertada do site: marca + CTA lado a lado.
      Com `nowrap` no botão, sem encolher aqui o conjunto estoura 360px. */
   .cabecalho .wrap { gap: var(--e2); padding: 0 18px; }
-  .cabecalho .btn { padding: 10px 14px; font-size: 14px; }
+  /* DOIS botões aqui, não um: "Entrar" (que só existe desde que o Gateway
+     voltou) e "Falar com a gente". Com os valores antigos o conjunto passava
+     20px da tela em 375px de largura e a página inteira rolava de lado —
+     medido, não estimado. */
+  .cabecalho .btn { padding: 9px 11px; font-size: 13px; }
+  .cabecalho .nav-topo { gap: 8px; }
 }
 
 /* =========================================================================
@@ -427,6 +454,44 @@ details p { margin-top: var(--e2); color: var(--apagado); }
 .passos { margin-top: var(--e4); }
 .passos h3 { margin: 0 0 6px; }
 .passos p { margin: 0; }
+
+/* --------------------------------------------- diagrama dentro do artigo
+   Ponto de descanso visual no meio do texto longo. Construído com HTML e
+   CSS, não com imagem: continua legível em qualquer tela, não pesa no 4G,
+   e o leitor de tela lê o conteúdo. */
+.diagrama {
+  margin: var(--e5) 0; padding: var(--e4);
+  border: 1px solid var(--linha); border-radius: var(--raio);
+  background: var(--painel);
+}
+.diagrama .titulo-dg {
+  font-size: 13px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--apagado); font-weight: 700; margin: 0 0 var(--e3);
+}
+.diagrama ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+.diagrama li {
+  display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: var(--e3);
+  padding-bottom: var(--e3); position: relative; font-size: 16px; line-height: 1.5;
+}
+.diagrama li:last-child { padding-bottom: 0; }
+/* o fio que liga um passo ao seguinte */
+.diagrama li::before {
+  content: ""; grid-column: 1; grid-row: 1;
+  width: 14px; height: 14px; border-radius: 50%; margin-top: 5px;
+  background: var(--vermelho); flex: none;
+}
+.diagrama li:not(:last-child)::after {
+  content: ""; position: absolute; left: 6px; top: 24px; bottom: 0;
+  width: 2px; background: var(--linha);
+}
+.diagrama li > * { grid-column: 2; margin: 0; }
+.diagrama b { display: block; color: var(--off-white); font-size: 17px; margin-bottom: 3px; }
+.diagrama span { color: var(--apagado); }
+.diagrama .saida {
+  margin-top: var(--e3); padding-top: var(--e3); border-top: 1px solid var(--linha);
+  font-size: 16px; color: var(--apagado);
+}
+.diagrama .saida b { display: inline; color: var(--vermelho); font-size: inherit; }
 
 /* endereço oficial citado no meio do texto */
 .oficial {
