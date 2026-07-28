@@ -313,7 +313,11 @@ details p { margin-top: var(--e2); color: var(--apagado); }
    ========================================================================= */
 
 .wrap-texto {
-  width: min(100% - calc(var(--respiro) * 2), 68ch);
+  /* 62ch e não 68ch: a unidade `ch` mede o "0", mais estreito que a média das
+     letras, então 68ch renderiza perto de 78 caracteres reais — acima da faixa
+     confortável (45–75). Linha longa demais faz o olho perder o começo da
+     linha seguinte, que é metade da sensação de "texto pesado". */
+  width: min(100% - calc(var(--respiro) * 2), 62ch);
   margin-inline: auto;
 }
 
@@ -332,13 +336,43 @@ details p { margin-top: var(--e2); color: var(--apagado); }
 
 /* ------------------------------------------------------------ corpo do post */
 .artigo { padding: var(--e5) 0 var(--e6); }
-.artigo > * + * { margin-top: var(--e3); }
-.artigo p { font-size: 18px; line-height: 1.72; text-wrap: pretty; }
+
+/* RITMO — o que separa "publicação" de "documento colado numa página".
+   O erro que deixava o texto feio não era falta de justificação: era o
+   espaço ENTRE parágrafos ser quase igual ao espaço entre linhas, então
+   nove parágrafos viravam um bloco cinza só. A regra: entrelinha menor,
+   espaço entre blocos maior. (E a margem padrão do navegador em <p> é
+   proporcional à fonte — por isso ela é zerada e controlada aqui.) */
+.artigo .wrap-texto > * { margin: 0; }
+.artigo .wrap-texto > * + * { margin-top: var(--e4); }
+
+.artigo p {
+  font-size: 18px;
+  line-height: 1.65;
+  text-wrap: pretty;
+  /* suaviza o serrilhado da margem direita sem justificar — ver nota abaixo */
+  hyphens: auto;
+}
+
+/* Parágrafo de abertura: maior, para dar um degrau de entrada no texto.
+   Continua na fonte display — a identidade proíbe serifa em parágrafo
+   longo (só em frase de destaque). */
+.artigo .wrap-texto > p:first-of-type {
+  font-size: 21px; line-height: 1.55; color: var(--off-white);
+}
+
+/* Título de seção com marca vermelha por cima: dá ao olho um ponto de
+   parada a cada seção, que é o que faltava. */
 .artigo h2 {
   font-size: clamp(23px, 3.4vw, 30px); line-height: 1.22; letter-spacing: -.02em;
-  margin-top: var(--e5); text-wrap: balance;
+  margin-top: var(--e6); text-wrap: balance; position: relative; padding-top: var(--e3);
 }
-.artigo h3 { font-size: 20px; line-height: 1.3; margin-top: var(--e4); }
+.artigo h2::before {
+  content: ""; position: absolute; top: 0; left: 0;
+  width: 46px; height: 3px; border-radius: 2px; background: var(--vermelho);
+}
+.artigo h3 { font-size: 20px; line-height: 1.3; }
+.artigo .wrap-texto > h2 + p { margin-top: var(--e3); }
 .artigo ul, .artigo ol { padding-left: 22px; display: grid; gap: 12px; }
 .artigo li { font-size: 18px; line-height: 1.65; }
 .artigo li::marker { color: var(--vermelho); }
@@ -354,7 +388,9 @@ details p { margin-top: var(--e2); color: var(--apagado); }
   border-left: 3px solid var(--vermelho); background: var(--painel);
   border-radius: 0 var(--raio) var(--raio) 0;
 }
-.artigo blockquote p { margin: 0; font-family: var(--fonte-serifa); font-size: 20px; }
+/* Serifa EM ITÁLICO é o uso sancionado pela identidade: "frase-manifesto /
+   editorial". Só aqui — nunca no corpo do texto. */
+.artigo blockquote p { margin: 0; font-family: var(--fonte-serifa); font-style: italic; font-size: 22px; line-height: 1.45; }
 
 /* caixa de aviso editorial (o que o texto NÃO é) */
 .nota {
@@ -386,7 +422,9 @@ details p { margin-top: var(--e2); color: var(--apagado); }
    sequência, então o ::before ocupa a coluna 1, o <h3> a coluna 2, e o
    PRIMEIRO <p> volta para a coluna 1 — 42px de largura, uma palavra por
    linha. Todo conteúdo do passo tem que ficar preso à coluna 2. */
-.passos > li > * { grid-column: 2; }
+.passos > li > * { grid-column: 2; margin: 0; }
+.passos > li > * + * { margin-top: var(--e2); }
+.passos { margin-top: var(--e4); }
 .passos h3 { margin: 0 0 6px; }
 .passos p { margin: 0; }
 
