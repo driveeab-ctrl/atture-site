@@ -309,7 +309,7 @@ details p { margin-top: var(--e2); color: var(--apagado); }
    Texto longo pede medida de leitura mais estreita que o resto do site: a
    `.wrap` de 1080px é boa para blocos e cartões e péssima para parágrafo —
    linha comprida demais faz o olho perder o início da linha seguinte.
-   Por isso `.wrap-texto` (68ch, ~720px), usada só aqui.
+   Por isso `.wrap-texto` (62ch, ~570px), usada só aqui.
    ========================================================================= */
 
 .wrap-texto {
