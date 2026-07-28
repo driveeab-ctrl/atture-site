@@ -1,0 +1,15 @@
+# atture-adv — www.atture-adv.com
+#
+# Site público e estático, tudo indexável. Não há área logada aqui: o sistema
+# fica em app.atture-adv.com, que é outro host e tem o próprio controle de
+# acesso (e o próprio robots.txt, se for o caso).
+#
+# Nota: a pasta local `_marca/` (PNG de carrossel, quadros e MP4 dos vídeos)
+# NÃO é publicada — está no .gitignore e nunca chega ao servidor. Por isso não
+# há regra de bloqueio para ela aqui: bloquear caminho inexistente só serviria
+# para revelar que ele existe em algum lugar.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.atture-adv.com/sitemap.xml

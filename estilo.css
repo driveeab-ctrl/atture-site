@@ -302,3 +302,125 @@ details p { margin-top: var(--e2); color: var(--apagado); }
   .cabecalho .wrap { gap: var(--e2); padding: 0 18px; }
   .cabecalho .btn { padding: 10px 14px; font-size: 14px; }
 }
+
+/* =========================================================================
+   BLOG  (/blog/)
+   -------------------------------------------------------------------------
+   Texto longo pede medida de leitura mais estreita que o resto do site: a
+   `.wrap` de 1080px é boa para blocos e cartões e péssima para parágrafo —
+   linha comprida demais faz o olho perder o início da linha seguinte.
+   Por isso `.wrap-texto` (68ch, ~720px), usada só aqui.
+   ========================================================================= */
+
+.wrap-texto {
+  width: min(100% - calc(var(--respiro) * 2), 68ch);
+  margin-inline: auto;
+}
+
+/* ------------------------------------------------------- cabeçalho do post */
+.artigo-topo { padding: var(--e6) 0 var(--e4); border-bottom: 1px solid var(--linha); }
+.artigo-topo h1 {
+  font-size: clamp(30px, 5.2vw, 46px);
+  line-height: 1.12; letter-spacing: -.03em; margin: var(--e2) 0 var(--e3);
+  text-wrap: balance;
+}
+.artigo-meta {
+  display: flex; flex-wrap: wrap; gap: var(--e1) var(--e3);
+  color: var(--apagado); font-size: 15px; margin: 0;
+}
+.artigo-meta time { color: var(--apagado); }
+
+/* ------------------------------------------------------------ corpo do post */
+.artigo { padding: var(--e5) 0 var(--e6); }
+.artigo > * + * { margin-top: var(--e3); }
+.artigo p { font-size: 18px; line-height: 1.72; text-wrap: pretty; }
+.artigo h2 {
+  font-size: clamp(23px, 3.4vw, 30px); line-height: 1.22; letter-spacing: -.02em;
+  margin-top: var(--e5); text-wrap: balance;
+}
+.artigo h3 { font-size: 20px; line-height: 1.3; margin-top: var(--e4); }
+.artigo ul, .artigo ol { padding-left: 22px; display: grid; gap: 12px; }
+.artigo li { font-size: 18px; line-height: 1.65; }
+.artigo li::marker { color: var(--vermelho); }
+.artigo strong { color: var(--off-white); font-weight: 700; }
+/* Endereço de tribunal é uma palavra indivisível longa. Sem isto ele fura a
+   caixa no celular em vez de quebrar. */
+.artigo a { color: var(--off-white); text-decoration: underline; overflow-wrap: anywhere; }
+.artigo p, .artigo li { overflow-wrap: break-word; }
+
+/* citação de destaque — usada para a frase que resume o argumento */
+.artigo blockquote {
+  margin: var(--e4) 0; padding: var(--e3) var(--e4);
+  border-left: 3px solid var(--vermelho); background: var(--painel);
+  border-radius: 0 var(--raio) var(--raio) 0;
+}
+.artigo blockquote p { margin: 0; font-family: var(--fonte-serifa); font-size: 20px; }
+
+/* caixa de aviso editorial (o que o texto NÃO é) */
+.nota {
+  border: 1px solid var(--linha); border-radius: var(--raio);
+  background: var(--painel); padding: var(--e3) var(--e4);
+}
+.nota p { font-size: 16px; color: var(--apagado); margin: 0; }
+.nota p + p { margin-top: var(--e2); }
+
+/* passo numerado do roteiro de conferência */
+.passos { list-style: none; padding: 0; display: grid; gap: var(--e3); counter-reset: passo; }
+.passos > li {
+  counter-increment: passo;
+  /* minmax(0,1fr) e não 1fr: `1fr` é minmax(auto,1fr), e o `auto` impede a
+     coluna de encolher abaixo do conteúdo mínimo. Com endereço longo de
+     tribunal (palavra indivisível de ~48 caracteres) a coluna estoura o
+     contêiner e a página inteira ganha rolagem lateral no celular. */
+  display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: var(--e3);
+  align-items: start;
+}
+.passos > li::before {
+  content: counter(passo);
+  grid-column: 1; grid-row: 1;
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--vermelho-fundo); color: var(--off-white);
+  display: grid; place-items: center; font-weight: 800; font-size: 18px;
+}
+/* SEM esta regra o layout quebra feio: a grade posiciona os filhos em
+   sequência, então o ::before ocupa a coluna 1, o <h3> a coluna 2, e o
+   PRIMEIRO <p> volta para a coluna 1 — 42px de largura, uma palavra por
+   linha. Todo conteúdo do passo tem que ficar preso à coluna 2. */
+.passos > li > * { grid-column: 2; }
+.passos h3 { margin: 0 0 6px; }
+.passos p { margin: 0; }
+
+/* endereço oficial citado no meio do texto */
+.oficial {
+  font-family: var(--fonte-mono); font-size: 15px;
+  background: var(--painel-2); border: 1px solid var(--linha);
+  border-radius: 8px; padding: 3px 8px;
+  /* `anywhere` e não `break-all`: break-all quebra no meio de qualquer
+     palavra sempre (saía "R / Esp 1882345"); anywhere só quebra quando não
+     couber, e prefere o espaço. */
+  overflow-wrap: anywhere;
+}
+
+/* --------------------------------------------------------- índice do blog */
+.lista-posts { list-style: none; padding: 0; display: grid; gap: var(--e3); }
+.post-cartao {
+  border: 1px solid var(--linha); border-radius: var(--raio);
+  background: var(--painel); padding: var(--e4);
+  transition: border-color .15s ease;
+}
+.post-cartao:hover { border-color: color-mix(in oklab, var(--vermelho) 45%, var(--linha)); }
+.post-cartao h2 { font-size: 22px; line-height: 1.25; margin: 6px 0 10px; letter-spacing: -.02em; }
+.post-cartao h2 a { text-decoration: none; }
+.post-cartao p { color: var(--apagado); margin: 0; }
+
+/* rodapé do post: volta para o índice + chamada honesta para o produto */
+.pos-artigo {
+  margin-top: var(--e6); padding-top: var(--e4);
+  border-top: 1px solid var(--linha);
+}
+
+@media (max-width: 560px) {
+  .artigo p, .artigo li { font-size: 17px; }
+  .passos > li { grid-template-columns: 34px minmax(0, 1fr); gap: var(--e2); }
+  .passos > li::before { width: 34px; height: 34px; font-size: 16px; }
+}

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog — atture-adv</title>
+  <meta name="description" content="Textos práticos sobre inteligência artificial na advocacia: como conferir jurisprudência, como não confiar demais na IA e o que muda no dia a dia de quem trabalha com processo.">
+  <meta name="theme-color" content="#16151C">
+  <link rel="canonical" href="https://www.atture-adv.com/blog/">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../estilo.css">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="atture-adv">
+  <meta property="og:title" content="Blog — atture-adv">
+  <meta property="og:description" content="Textos práticos sobre inteligência artificial na advocacia, escritos por quem advoga.">
+  <meta property="og:url" content="https://www.atture-adv.com/blog/">
+  <meta property="og:locale" content="pt_BR">
+
+  <script src="../config.js?v=4"></script>
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="wrap">
+      <a href="../index.html" class="lockup" aria-label="atture-adv — página inicial">
+        <svg class="simbolo" viewBox="0 0 100 100" role="img" aria-label="atture-adv">
+          <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="14">
+            <line x1="39" y1="82" x2="47" y2="21"/>
+            <line x1="59" y1="82" x2="67" y2="21"/>
+          </g>
+        </svg>
+        <span class="logotipo">a<span class="tt">tt</span>ure<span class="adv">-adv</span></span>
+      </a>
+      <a id="cta-topo" hidden></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="topo sem-borda">
+      <div class="wrap-texto">
+        <p class="eyebrow">BLOG</p>
+        <h1>Sobre IA na advocacia, sem vender milagre.</h1>
+        <p class="lead">Textos escritos por quem advoga e usa essas ferramentas todo dia — inclusive quando elas erram. O que funciona, o que não funciona e como conferir.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap-texto">
+        <ul class="lista-posts">
+
+          <li class="post-cartao">
+            <p class="artigo-meta"><time datetime="2026-07-28">28/07/2026</time> · 8 min de leitura</p>
+            <h2><a href="conferir-jurisprudencia-inventada-por-ia.html">Como conferir se a jurisprudência que a IA te deu existe</a></h2>
+            <p>O acórdão inventado nunca vem com cara de erro: o número é plausível, a ementa é fluente e o relator existe de verdade. O roteiro de conferência, com os endereços oficiais de cada tribunal.</p>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="wrap">
+      <div>
+        <span class="lockup">
+          <svg class="simbolo" viewBox="0 0 100 100" role="img" aria-label="atture-adv">
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="14">
+              <line x1="39" y1="82" x2="47" y2="21"/>
+              <line x1="59" y1="82" x2="67" y2="21"/>
+            </g>
+          </svg>
+          <span class="logotipo">a<span class="tt">tt</span>ure<span class="adv">-adv</span></span>
+        </span>
+        <p class="miudo" id="rodape-identificacao"></p>
+      </div>
+      <div class="links">
+        <a href="../index.html">Página inicial</a>
+        <a href="../privacidade.html">Política de Privacidade</a>
+        <a href="../termos.html">Termos de Uso</a>
+        <a id="rodape-sistema" href="#" hidden>Entrar no sistema</a>
+      </div>
+    </div>
+    <div class="wrap">
+      <p class="miudo">O atture-adv é ferramenta de apoio ao trabalho do advogado. Não presta serviço jurídico e não substitui a atuação profissional.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var emp = window.ATTURE.empresa || {};
+      var email = (window.ATTURE.email && window.ATTURE.email.contato) || "";
+
+      var linkWhats = window.ATTURE.linkWhatsApp("Olá! Cheguei pelo blog do atture-adv e quero saber mais.");
+      var topo = document.getElementById("cta-topo");
+      if (linkWhats) {
+        topo.href = linkWhats;
+        topo.textContent = "Falar no WhatsApp";
+        // A classe só entra junto com a revelação — ver comentário no 404.html.
+        topo.className = "btn btn-primario";
+        topo.hidden = false;
+      }
+
+      var partes = [emp.nome || "atture-adv"];
+      if (emp.identificacao) partes.push("CNPJ " + emp.identificacao);
+      partes.push(email);
+      document.getElementById("rodape-identificacao").textContent = partes.join(" · ");
+
+      var linkSistema = window.ATTURE.links && window.ATTURE.links.sistema;
+      if (linkSistema) {
+        var elSistema = document.getElementById("rodape-sistema");
+        elSistema.href = linkSistema;
+        elSistema.hidden = false;
+      }
+    })();
+  </script>
+
+</body>
+</html>
