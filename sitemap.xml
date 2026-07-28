@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Mapa do site do atture-adv.
-  O endereço canônico é o www (o domínio raiz faz 301 para cá) — por isso
-  todas as URLs aqui são https://www.atture-adv.com/...
-  Ao publicar artigo novo no blog: acrescentar uma entrada <url> e atualizar
-  a <lastmod> da página /blog/.
+
+  DUAS REGRAS que não podem ser esquecidas ao acrescentar página:
+
+  1. O endereço canônico é o **www** — o domínio raiz faz 301 para cá.
+
+  2. As URLs vão **SEM `.html`**. O Cloudflare Pages serve endereço limpo e
+     devolve 308 de `/pagina.html` para `/pagina`. Listar o `.html` aqui faria
+     o buscador rastrear um redirecionamento em vez da página — verificado em
+     28/07/2026 com `curl`.
+
+  Ao publicar artigo novo: acrescente um <url> e atualize a <lastmod> de /blog/.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
@@ -23,21 +30,21 @@
   </url>
 
   <url>
-    <loc>https://www.atture-adv.com/blog/conferir-jurisprudencia-inventada-por-ia.html</loc>
+    <loc>https://www.atture-adv.com/blog/conferir-jurisprudencia-inventada-por-ia</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.atture-adv.com/privacidade.html</loc>
+    <loc>https://www.atture-adv.com/privacidade</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://www.atture-adv.com/termos.html</loc>
+    <loc>https://www.atture-adv.com/termos</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
